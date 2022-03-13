@@ -71,7 +71,7 @@ export default function Home() {
   }, [query, router.query]);
 
   const socketInitializer = useCallback(async () => {
-    socket = io.connect("http://localhost:4000/");
+    socket = io.connect("https://secret-ravine-12116.herokuapp.com/");
     socket.on("connect", () => {
       console.log("connected");
     });
