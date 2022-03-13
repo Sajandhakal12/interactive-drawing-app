@@ -2,7 +2,8 @@
 // import Image from "next/image";
 import { useEffect, useState, useRef, useCallback } from "react";
 // import styles from "../styles/Home.module.css";
-import * as io from "socket.io-client";
+// import * as io from "socket.io-client";
+import io from "socket.io-client";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 import { useRouter } from "next/router";
 import react from "react";
