@@ -2,7 +2,7 @@
 // import Image from "next/image";
 import { useEffect, useState, useRef, useCallback } from "react";
 // import styles from "../styles/Home.module.css";
-import io from "socket.io-client";
+import * as io from "socket.io-client";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 import { useRouter } from "next/router";
 import react from "react";
@@ -60,7 +60,7 @@ export default function Home() {
       socket?.emit("join-drawing", {
         name: router.query.name,
         drawingId: router.query.drawingId,
-        color: Math.floor(Math.random() * 16777215).toString(16),
+        color: router.query.color,
       });
     }
     setLoading(false);
@@ -71,6 +71,7 @@ export default function Home() {
   }, [query, router.query]);
 
   const socketInitializer = useCallback(async () => {
+    // socket = io.connect("http://localhost:4000/");
     await fetch("/api/socket");
     socket = io();
 
